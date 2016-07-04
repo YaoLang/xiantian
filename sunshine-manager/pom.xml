@@ -20,8 +20,6 @@
   <modules>
   	<module>sunshine-manager-pojo</module>
   	<module>sunshine-manager-mapper</module>
-  	<module>sunshine-manager-service</module>
-  	<module>sunshine-manager-web</module>
   </modules>
   <build>
 		<!-- 配置插件 -->
