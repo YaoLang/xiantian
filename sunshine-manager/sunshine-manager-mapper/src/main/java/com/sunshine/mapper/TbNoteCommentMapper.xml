@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunshine.mapper.TbNoteCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.sunshine.pojo.TbNoteComment" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="zannum" property="zannum" jdbcType="INTEGER" />
+    <result column="commentnum" property="commentnum" jdbcType="INTEGER" />
+    <result column="auther" property="auther" jdbcType="BIGINT" />
+    <result column="authername" property="authername" jdbcType="VARCHAR" />
+    <result column="noteid" property="noteid" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sunshine.pojo.TbNoteComment" extends="BaseResultMap" >
+    <result column="subcomment" property="subcomment" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, content, zannum, commentnum, auther, authername, noteid, created, updated, status
+  </sql>
+  <sql id="Blob_Column_List" >
+    subcomment
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.sunshine.pojo.TbNoteCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_note_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sunshine.pojo.TbNoteCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_note_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_note_comment
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_note_comment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sunshine.pojo.TbNoteCommentExample" >
+    delete from tb_note_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sunshine.pojo.TbNoteComment" >
+    insert into tb_note_comment (id, content, zannum, 
+      commentnum, auther, authername, 
+      noteid, created, updated, 
+      status, subcomment)
+    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{zannum,jdbcType=INTEGER}, 
+      #{commentnum,jdbcType=INTEGER}, #{auther,jdbcType=BIGINT}, #{authername,jdbcType=VARCHAR}, 
+      #{noteid,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{subcomment,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sunshine.pojo.TbNoteComment" >
+    insert into tb_note_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="zannum != null" >
+        zannum,
+      </if>
+      <if test="commentnum != null" >
+        commentnum,
+      </if>
+      <if test="auther != null" >
+        auther,
+      </if>
+      <if test="authername != null" >
+        authername,
+      </if>
+      <if test="noteid != null" >
+        noteid,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="updated != null" >
+        updated,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="subcomment != null" >
+        subcomment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="zannum != null" >
+        #{zannum,jdbcType=INTEGER},
+      </if>
+      <if test="commentnum != null" >
+        #{commentnum,jdbcType=INTEGER},
+      </if>
+      <if test="auther != null" >
+        #{auther,jdbcType=BIGINT},
+      </if>
+      <if test="authername != null" >
+        #{authername,jdbcType=VARCHAR},
+      </if>
+      <if test="noteid != null" >
+        #{noteid,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="subcomment != null" >
+        #{subcomment,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sunshine.pojo.TbNoteCommentExample" resultType="java.lang.Integer" >
+    select count(*) from tb_note_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_note_comment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zannum != null" >
+        zannum = #{record.zannum,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentnum != null" >
+        commentnum = #{record.commentnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.auther != null" >
+        auther = #{record.auther,jdbcType=BIGINT},
+      </if>
+      <if test="record.authername != null" >
+        authername = #{record.authername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteid != null" >
+        noteid = #{record.noteid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null" >
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.subcomment != null" >
+        subcomment = #{record.subcomment,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update tb_note_comment
+    set id = #{record.id,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      zannum = #{record.zannum,jdbcType=INTEGER},
+      commentnum = #{record.commentnum,jdbcType=INTEGER},
+      auther = #{record.auther,jdbcType=BIGINT},
+      authername = #{record.authername,jdbcType=VARCHAR},
+      noteid = #{record.noteid,jdbcType=VARCHAR},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=TINYINT},
+      subcomment = #{record.subcomment,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_note_comment
+    set id = #{record.id,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      zannum = #{record.zannum,jdbcType=INTEGER},
+      commentnum = #{record.commentnum,jdbcType=INTEGER},
+      auther = #{record.auther,jdbcType=BIGINT},
+      authername = #{record.authername,jdbcType=VARCHAR},
+      noteid = #{record.noteid,jdbcType=VARCHAR},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunshine.pojo.TbNoteComment" >
+    update tb_note_comment
+    <set >
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="zannum != null" >
+        zannum = #{zannum,jdbcType=INTEGER},
+      </if>
+      <if test="commentnum != null" >
+        commentnum = #{commentnum,jdbcType=INTEGER},
+      </if>
+      <if test="auther != null" >
+        auther = #{auther,jdbcType=BIGINT},
+      </if>
+      <if test="authername != null" >
+        authername = #{authername,jdbcType=VARCHAR},
+      </if>
+      <if test="noteid != null" >
+        noteid = #{noteid,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="subcomment != null" >
+        subcomment = #{subcomment,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sunshine.pojo.TbNoteComment" >
+    update tb_note_comment
+    set content = #{content,jdbcType=VARCHAR},
+      zannum = #{zannum,jdbcType=INTEGER},
+      commentnum = #{commentnum,jdbcType=INTEGER},
+      auther = #{auther,jdbcType=BIGINT},
+      authername = #{authername,jdbcType=VARCHAR},
+      noteid = #{noteid,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      subcomment = #{subcomment,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sunshine.pojo.TbNoteComment" >
+    update tb_note_comment
+    set content = #{content,jdbcType=VARCHAR},
+      zannum = #{zannum,jdbcType=INTEGER},
+      commentnum = #{commentnum,jdbcType=INTEGER},
+      auther = #{auther,jdbcType=BIGINT},
+      authername = #{authername,jdbcType=VARCHAR},
+      noteid = #{noteid,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
