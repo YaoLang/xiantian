@@ -84,6 +84,7 @@
 
     <build>
         <plugins>
+
             <!-- 配置Tomcat插件 -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>

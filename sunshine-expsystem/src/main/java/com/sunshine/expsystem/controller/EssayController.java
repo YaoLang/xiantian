@@ -1,8 +1,10 @@
 package com.sunshine.expsystem.controller;
 
 import com.sunshine.common.pojo.CommonResult;
+import com.sunshine.expsystem.service.EssayCatService;
 import com.sunshine.expsystem.service.EssayService;
 import com.sunshine.pojo.TbEssay;
+import com.sunshine.pojo.TbEssayCat;
 import com.sunshine.pojo.TbEssayContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +20,18 @@ public class EssayController {
     @Autowired
     private EssayService essayService;
 
+    @Autowired
+    private EssayCatService essayCatService;
+
     @RequestMapping("/essay/{cid}")
     public String  getEssayByCid(@PathVariable Long cid,Model model){
         CommonResult commonResult =  essayService.findEssayByCid(cid, new Byte("1"));
+
+        TbEssayCat cat = essayCatService.getEssayCatById(cid);
+
         model.addAttribute("essaylist",commonResult);
+        if(cat!=null)
+            model.addAttribute("essaycatname",cat.getName());
         return "item";
     }
 

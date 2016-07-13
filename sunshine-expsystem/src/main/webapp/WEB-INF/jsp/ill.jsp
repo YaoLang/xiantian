@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: kong
@@ -59,10 +60,13 @@
                   <div class="row-fluid">
                     <div class="span12 btn-icon-pg">
                       <ul class="center-align">
-                        <li><i class="icon-chevron-right"></i>头颈症状</li>
-                        <li><i class="icon-chevron-right"></i>眼症状</li>
-                        <li><i class="icon-chevron-right"></i>皮肤羽毛</li>
-                        <li><i class="icon-chevron-right"></i>解剖</li>
+                        <c:forEach items="${ill.data}" var="essayitem">
+                          <li><i class="icon-chevron-right"></i>${essayitem}</li>
+                        </c:forEach>
+                        <%--<li><i class="icon-chevron-right"></i>头颈症状</li>--%>
+                        <%--<li><i class="icon-chevron-right"></i>眼症状</li>--%>
+                        <%--<li><i class="icon-chevron-right"></i>皮肤羽毛</li>--%>
+                        <%--<li><i class="icon-chevron-right"></i>解剖</li>--%>
                       </ul>
                     </div>
                   </div>

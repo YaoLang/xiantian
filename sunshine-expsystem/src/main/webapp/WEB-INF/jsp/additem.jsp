@@ -56,19 +56,19 @@
             <div class="control-group">
               <label class="control-label">所属分类  :</label>
               <div class="controls">
-                <select id="select-1">
+                <select id="select-1" name="cid">
                   <c:forEach items="${parent}" var="node">
                   	<option value="${node.id }">${node.text}</option>
                   </c:forEach>
              
                 </select>
               </div>
-              <div class="controls">
-                <select name="cid" id="select-2">
-                  <option value="5">二级分类</option>
-                  
-                </select>
-              </div>
+              <%--<div class="controls">--%>
+                <%--<select name="cid" id="select-2">--%>
+                  <%--<option value="5">二级分类</option>--%>
+                  <%----%>
+                <%--</select>--%>
+              <%--</div>--%>
             </div>
 
           	<div class="control-group">

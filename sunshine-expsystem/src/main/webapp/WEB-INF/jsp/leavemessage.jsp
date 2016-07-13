@@ -121,12 +121,43 @@
 
               </div>
             <div id="tab2" class="tab-pane">
-                <p>未有问题</p>
+              <c:forEach items="${noteing.data}" var="i">
+                <div class="span4">
+                  <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+                      <h5>${i.title}</h5><span class="label label-important">${i.authername}</span>
+                    </div>
+                    <div class="widget-content">
+                        ${i.subtitle}
+                    </div>
+                    <div class="widget-plain">
+                      <div class="form-actions" style="margin-top: 0px;border-bottom: 1px solid #cdcdcd">
+                        <button type="submit" class="btn btn-success">答复</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </c:forEach>
 
             </div>
             <div id="tab3" class="tab-pane">
-                <p>未有问题</p>
-
+              <c:forEach items="${notefail.data}" var="i">
+                <div class="span4">
+                  <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+                      <h5>${i.title}</h5><span class="label label-important">${i.authername}</span>
+                    </div>
+                    <div class="widget-content">
+                        ${i.subtitle}
+                    </div>
+                    <div class="widget-plain">
+                      <div class="form-actions" style="margin-top: 0px;border-bottom: 1px solid #cdcdcd">
+                        <button type="submit" class="btn btn-success">答复</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </c:forEach>
             </div>
           </div>
         </div>

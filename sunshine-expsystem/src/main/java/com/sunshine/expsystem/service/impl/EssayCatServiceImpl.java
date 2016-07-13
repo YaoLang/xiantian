@@ -36,4 +36,9 @@ public class EssayCatServiceImpl implements EssayCatService {
 		
 		return treeNodes;
 	}
+
+	@Override
+	public TbEssayCat getEssayCatById(long id) {
+		return tbEssayCatMapper.selectByPrimaryKey(id);
+	}
 }

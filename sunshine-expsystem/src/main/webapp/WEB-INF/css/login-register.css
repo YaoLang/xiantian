@@ -1,0 +1,93 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	/*background: url(../img/bg1.jpg) no-repeat 0px -200px;*/
+	
+	/*background: #3CA2E0;*/
+}
+.bg .bg_img{
+	width: 100%;
+	height:100%;
+	-moz-filter:blur(10px);
+	-webkit-filter: blur(10px);
+	-o-filter:blur(10px);
+	filter: blur(10px);
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
+a:focus{
+	outline: none;
+}
+.content{
+	width: 340px;
+	min-width: 340px;
+	margin: 80px auto;
+	border-radius: 10px;
+	background-color: white;
+	/*background:rgba(255,255,255,0.7);*/
+	padding: 20px 40px 30px;
+	/*text-align: center;*/
+}
+.logo{
+	text-align: center;
+	padding-bottom: 20px;
+	position: relative;
+}
+.logo span{
+	vertical-align: middle;
+	font-size: 40px;
+	/*font-weight: 600;*/
+	/*font-family: geneva;*/
+	color: #0096DF ;
+	margin-left: -35px;
+	margin-top: 32px;
+	display: inline-block;
+}
+.login_in{
+	
+}
+.login_in input,.login_in button{
+	width: 330px;
+	height: 35px;
+	margin-bottom: 12px;
+	display: inline-block;
+}
+.login_in button{
+	background: #3CA2E0;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: 340px;
+	height: 42px;
+	/*font-family: "微软雅黑";*/
+}
+.login_in button:hover,.login_in button:focus{
+	color: white;
+	background: #3083EB;
+}
+
+.problem {
+	margin-top: 30px;
+	text-align: center;
+}
+.problem .forget{
+	color: #3CA2E0;
+	display: inline-block;
+	border-right: 2px solid #3CA2E0;
+	padding-right: 10px;
+	margin-right: 10px;
+}
+.problem .register{
+	color: #3CA2E0;
+}
+.error{
+	width: 320px;
+	height: 28px;
+	/*margin-top: -10px;*/
+	display: none;
+	color: #d9534f;
+}

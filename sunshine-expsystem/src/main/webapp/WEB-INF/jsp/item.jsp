@@ -27,7 +27,7 @@
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a> <a href="#" class="tip-bottom">知识库</a><a href="#" class="current">病毒病</a> </div>
-    <h1>病毒病</h1>
+    <h1>${essaycatname}</h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -37,7 +37,7 @@
 
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>病毒病</h5>
+            <h5>${essaycatname}</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">

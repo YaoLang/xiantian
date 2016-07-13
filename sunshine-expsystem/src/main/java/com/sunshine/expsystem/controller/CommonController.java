@@ -1,12 +1,17 @@
 package com.sunshine.expsystem.controller;
 
 import com.sunshine.common.pojo.CommonResult;
+import com.sunshine.expsystem.service.AdminService;
 import com.sunshine.expsystem.service.EssayService;
 import com.sunshine.expsystem.service.NoteService;
+import com.sunshine.pojo.TbAdmin;
+import com.sunshine.pojo.TbUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RequestMapping("/common")
 @Controller
@@ -18,8 +23,14 @@ public class CommonController {
 	@Autowired
 	private EssayService essayService;
 
-	@RequestMapping("header")
-	public String header(){
+	@Autowired
+	private AdminService adminService;
+
+	@RequestMapping("/header")
+	public String header(HttpServletRequest req,Model model){
+		TbAdmin user = adminService.getUserByRequst(req);
+		if(user!=null)
+			model.addAttribute("uname", user.getUsername());
 		return "/common/header";
 	}
 	

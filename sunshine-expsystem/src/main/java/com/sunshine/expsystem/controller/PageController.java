@@ -28,10 +28,6 @@ public class PageController {
         return "chat";
     }
 
-    @RequestMapping("/ill")
-    public String ill(){
-        return "ill";
-    }
 
     @RequestMapping("/chart")
     public String chart(){
@@ -45,4 +41,15 @@ public class PageController {
         model.addAttribute("parent", nodes);
         return "additem";
     }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @RequestMapping("/register")
+    public String regist(){
+        return "register";
+    }
+
 }
