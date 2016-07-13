@@ -29,6 +29,13 @@
 	<mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
 	<mvc:resources location="/WEB-INF/font-awesome/" mapping="/font-awesome/**"/>
 
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 拦截请求 -->
+			<mvc:mapping path="/common/header"/>
+			<bean class="com.sunshine.expsystem.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"

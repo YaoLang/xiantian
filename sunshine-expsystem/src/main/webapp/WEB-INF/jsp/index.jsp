@@ -35,23 +35,33 @@
   <div class="container-fluid">
     <div class="quick-actions_homepage">
       <ul class="quick-actions">
-        <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span>网站统计 </a> </li>
-        <li class="bg_lg span3"> <a href="charts.html"> <i class="icon-signal"></i> 图表统计</a> </li>
-        <li class="bg_ly"> <a href="/item"> <i class="icon-inbox"></i><span class="label label-success">101</span>商品管理 </a> </li>
-        <li class="bg_lo"> <a href="/order/list/0"> <i class="icon-th"></i> 订单</a> </li>
-        <li class="bg_ls"> <a href="grid.html"> <i class="icon-fullscreen"></i> 分类</a> </li>
-        <li class="bg_lo span3"> <a href="form-common.html"> <i class="icon-th-list"></i> 物流</a> </li>
-        <li class="bg_ls"> <a href="buttons.html"> <i class="icon-tint"></i> 合作商家</a> </li>
-        <li class="bg_lb"> <a href="/cms/show"> <i class="icon-pencil"></i>广告</a> </li>
-        <li class="bg_lg"> <a href="calendar.html"> <i class="icon-calendar"></i>SEO优化</a> </li>
-        <li class="bg_lr"> <a href="error404.html"> <i class="icon-info-sign"></i>错误访问</a> </li>
 
+        <li class="bg_lg span3"> <a href=""> <i class="icon-signal"></i> 图表统计</a> </li>
+        <li class="bg_lb"> <a href=""> <i class="icon-dashboard"></i>网站统计 </a> </li>
+        <li class="bg_ly"> <a href=""> <i class="icon-inbox"></i><span class="label label-success">8</span>备忘录 </a> </li>
+        <li class="bg_lo"> <a href=""> <i class="icon-th"></i> <span class="label label-important">20</span> 问题解答</a> </li>
+        <li class="bg_ls"> <a href=""> <i class="icon-fullscreen"></i> 合作商家</a> </li>
+        <!--<li class="bg_lo span3"> <a href="form-common.html"> <i class="icon-th-list"></i> 物流</a> </li>-->
+        <!--<li class="bg_ls"> <a href="buttons.html"> <i class="icon-tint"></i> 合作商家</a> </li>-->
+        <!--<li class="bg_lb"> <a href="/cms/show"> <i class="icon-pencil"></i>广告</a> </li>-->
+        <!--<li class="bg_lg"> <a href="calendar.html"> <i class="icon-calendar"></i>SEO优化</a> </li>-->
+        <!--<li class="bg_lr"> <a href="error404.html"> <i class="icon-info-sign"></i>错误访问</a> </li>-->
       </ul>
-    </div>
-<!--End-Action boxes-->    
 
+    </div>
+    <div style="clear: both;"></div>
+<!--End-Action boxes-->    
+    <!--<hr/>-->
 <!--Chart-box-->    
     <div class="row-fluid">
+      <div class="diagram row-fluid">
+		<!--width: 59%;display: inline-block;-->
+		<div id="container1" class="span5" style="min-width: 200px; height: 400px; margin: 0 auto;"></div>
+		
+		<div id="container2" class="span7" style="min-width: 200px; height: 400px; margin-left: 2.56%;"></div>
+      </div>
+      <hr/>
+      
       <div class="widget-box">
         <div class="widget-title bg_lg"><span class="icon"><i class="icon-signal"></i></span>
           <h5>网站访问统计</h5>
@@ -59,21 +69,25 @@
         <div class="widget-content" >
           <div class="row-fluid">
             <div class="span9">
-              <div class="chart"></div>
+              <!--<div class="chart">-->
+			  <div id="container3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+              	
+              <!--</div>-->
             </div>
             <div class="span3">
               <ul class="site-stats">
-                <li class="bg_lh"><i class="icon-user"></i> <strong>2540</strong> <small>总用户量</small></li>
+                <li class="bg_lh"><i class="icon-user"></i> <strong>250</strong> <small>总用户量</small></li>
                 <li class="bg_lh"><i class="icon-plus"></i> <strong>120</strong> <small>新增用户 </small></li>
-                <li class="bg_lh"><i class="icon-shopping-cart"></i> <strong>656</strong> <small>总商品数</small></li>
-                <li class="bg_lh"><i class="icon-tag"></i> <strong>9540</strong> <small>今日订单数</small></li>
-                <li class="bg_lh"><i class="icon-repeat"></i> <strong>10</strong> <small>过去订单量</small></li>
-                <li class="bg_lh"><i class="icon-globe"></i> <strong>8540</strong> <small>在线订单</small></li>
+                <li class="bg_lh"><i class="icon-shopping-cart"></i> <strong>56</strong> <small>总商品数</small></li>
+                <li class="bg_lh"><i class="icon-tag"></i> <strong>40</strong> <small>今日订单数</small></li>
+                <li class="bg_lh"><i class="icon-repeat"></i> <strong>100</strong> <small>访问量</small></li>
+                <li class="bg_lh"><i class="icon-globe"></i> <strong>80</strong> <small>提问次数</small></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
     
     
@@ -176,6 +190,12 @@
               </li>
               <li>
                 <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av2.jpg"> </div>
+                <div class="article-post"> <span class="user-info">jom</span>
+                  <p>淘宝 &amp; 事业部经理</p>
+                </div>
+              </li>
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av2.jpg"> </div>
                 <div class="article-post"> <span class="user-info">jimmy</span>
                   <p>京东商城 &amp; 物流部经理</p>
                 </div>
@@ -221,7 +241,11 @@
 <script src="js/select2.min.js"></script> 
 <script src="js/matrix.popover.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script> 
+<script src="js/matrix.tables.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
+<script src="../js/diagram.js"></script>
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
   // a different page. Ignore if the value returned is a null string:
@@ -241,10 +265,11 @@
       }
   }
 
-// resets the menu selection upon entry to this page:
-function resetMenu() {
-   document.gomenu.selector.selectedIndex = 2;
-}
+	// resets the menu selection upon entry to this page:
+	function resetMenu() {
+	   document.gomenu.selector.selectedIndex = 2;
+	}
+
 </script>
 </body>
 </html>

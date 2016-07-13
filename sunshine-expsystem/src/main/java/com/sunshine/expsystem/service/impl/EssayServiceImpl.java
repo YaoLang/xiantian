@@ -75,7 +75,7 @@ public class EssayServiceImpl implements EssayService {
         tbEssay.setId(String.valueOf(key));
         tbEssay.setAuther(1L);
         tbEssay.setAuthername("yaolang");
-
+        tbEssay.setStatus(new Byte("1"));
         tbEssay.setCollectnum(0);
         tbEssay.setCommentnum(0);
         tbEssay.setCreated(new Date());
