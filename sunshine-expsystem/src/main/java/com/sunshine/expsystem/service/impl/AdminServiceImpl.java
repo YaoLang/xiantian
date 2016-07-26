@@ -37,6 +37,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Value("${XT_ADMIN_TOKEN}")
 	public String XT_ADMIN_TOKEN;
+
+	@Value("${JEDIS_PASSOWRD}")
+	private String JEDIS_PASSOWRD;
 	
 	@Override
 	public CommonResult checkData(String content, Integer type) {
@@ -109,7 +112,6 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public CommonResult userLogout(String token) {
-		
 		jedisClient.del(REDIS_ADMIN_SESSION+":"+token);
 		return CommonResult.ok();
 	}

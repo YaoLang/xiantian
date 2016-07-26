@@ -63,4 +63,10 @@ public class JedisClientCluster implements JedisClient {
 		return result;
 	}
 
+	@Override
+	public String auth(String password) {
+		String result = jedisCluster.auth(password);
+		return result;
+	}
+
 }

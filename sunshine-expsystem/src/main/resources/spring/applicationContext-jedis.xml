@@ -45,12 +45,13 @@
 
 
 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-		<constructor-arg name="host" value="202.116.161.86"></constructor-arg>
+		<constructor-arg name="host" value="192.168.7.51"></constructor-arg>
 		<constructor-arg name="port" value="6379"></constructor-arg>
 	</bean>
 
 	<bean id="jedisClientSingle" class="com.sunshine.expsystem.dao.impl.JedisClientSingle">
 		<constructor-arg name="jedisPool" ref="jedisPool"></constructor-arg>
+		<constructor-arg name="password" value="123"></constructor-arg>
 	</bean>
 
 

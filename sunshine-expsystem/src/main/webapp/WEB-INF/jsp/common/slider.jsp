@@ -6,7 +6,7 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i>统计信息</a>
   <ul>
     <li class="active"><a href="/"><i class="icon icon-home"></i> <span>统计信息</span></a> </li>
-    <%--<li> <a href="/ill"><i class="icon icon-signal"></i> <span>辅助诊断系统</span></a> </li>--%>
+    <li> <a href="/ill"><i class="icon icon-signal"></i> <span>辅助诊断系统</span></a> </li>
     <li class="submenu"> <a href="#"><i class="icon icon-inbox"></i> <span>知识库</span></a>
       <ul>
         <c:forEach items="${essay.data}" var="essayitem">

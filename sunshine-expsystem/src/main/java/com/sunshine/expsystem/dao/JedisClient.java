@@ -69,4 +69,11 @@ public interface JedisClient {
 	 * @return
 	 */
 	long hdel(String hkey, String key);
+
+	/**
+	 * 认证
+	 * @param password
+	 * @return
+	 */
+	String auth(String password);
 }
