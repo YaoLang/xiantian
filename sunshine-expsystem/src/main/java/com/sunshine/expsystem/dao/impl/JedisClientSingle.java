@@ -22,7 +22,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public String get(String key) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		String value = jedis.get(key);
 		jedis.close();
 		return value;
@@ -31,7 +31,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public String set(String key, String value) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		String result = jedis.set(key, value);
 		jedis.close();
 		return result;
@@ -40,7 +40,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public String hget(String hkey, String key) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		String value = jedis.hget(hkey, key);
 		jedis.close();
 		return value;
@@ -49,7 +49,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public long hset(String hkey, String key, String value) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		long result = jedis.hset(hkey, key, value);
 		jedis.close();
 		return result;
@@ -58,7 +58,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public long incr(String key) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		long result = jedis.incr(key);
 		jedis.close();
 		return result;
@@ -67,7 +67,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public long expire(String key, int second) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		long result = jedis.expire(key, second);
 		jedis.close();
 		return result;
@@ -85,7 +85,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public long del(String key) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		long result = jedis.del(key);
 		jedis.close();
 		return result;
@@ -103,7 +103,7 @@ public class JedisClientSingle implements JedisClient {
 	@Override
 	public String auth(String password) {
 		Jedis jedis = jedisPool.getResource();
-		jedis.auth(password);
+//		jedis.auth(password);
 		String result = jedis.auth(password);
 		jedis.close();
 		return result;

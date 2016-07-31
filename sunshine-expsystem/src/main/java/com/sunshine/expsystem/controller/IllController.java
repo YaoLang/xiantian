@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IllController {
 
-    @Autowired
-    private PoultryService poultryService;
-
-    @RequestMapping("/ill")
-    public String ill(Model model){
-        CommonResult ills = poultryService.getTopics();
-        model.addAttribute("ill",ills);
-        return "ill";
-    }
+//    @Autowired
+//    private PoultryService poultryService;
+//
+//
+//    @RequestMapping("/ill")
+//    public String ill(Model model){
+//        CommonResult ills = poultryService.getTopics();
+//        model.addAttribute("ill",ills);
+//        return "ill";
+//    }
 }

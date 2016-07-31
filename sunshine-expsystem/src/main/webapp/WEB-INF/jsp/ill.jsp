@@ -20,6 +20,11 @@
   <link rel="stylesheet" href="/css/matrix-media.css" />
   <link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <link href='http://fonts.useso.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+  <style>
+    .second:hover{
+      background-color: #000066;
+    }
+  </style>
 </head>
 <body>
 
@@ -59,30 +64,13 @@
                 <td class="span4">
                   <div class="row-fluid">
                     <div class="span12 btn-icon-pg">
-                      <ul class="center-align">
-                        <c:forEach items="${ill.data}" var="essayitem">
-                          <li><i class="icon-chevron-right"></i>${essayitem}</li>
-                        </c:forEach>
-                        <%--<li><i class="icon-chevron-right"></i>头颈症状</li>--%>
-                        <%--<li><i class="icon-chevron-right"></i>眼症状</li>--%>
-                        <%--<li><i class="icon-chevron-right"></i>皮肤羽毛</li>--%>
-                        <%--<li><i class="icon-chevron-right"></i>解剖</li>--%>
+                      <ul class="center-align" id="firstlabel">
+
                       </ul>
                     </div>
                   </div>
                 </td>
                 <td class="span4">
-                  <%--<select multiple="true">--%>
-                    <%--<option>患病比例大于10%</option>--%>
-                    <%--<option>患病比例小于10%</option>--%>
-                    <%--<option>体温升高</option>--%>
-                    <%--<option>体温正常</option>--%>
-                    <%--<option>体温下降</option>--%>
-                    <%--<option>无症状突然死亡</option>--%>
-                    <%--<option>精神萎靡不振</option>--%>
-                    <%--<option>采食减少或不食</option>--%>
-                  <%--</select>--%>
-
                   <div class="widget-content nopadding" style="max-height: 200px;overflow: scroll">
                     <table class="table table-bordered">
                       <tbody>
@@ -137,5 +125,28 @@
 <script src="/js/jquery.dataTables.min.js"></script>
 <script src="/js/matrix.js"></script>
 <script src="/js/matrix.tables.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $.get("/dictionary/1", function (data) {
+      var labels = data['data'];
+      var firstlabel = $("#firstlabel");
+
+      $.each(labels, function (index,item) {
+
+        if(item['id']!=8)
+          firstlabel.append('<li class="checkway"><i class="icon-chevron-right" id=\"'+item['id']+'\"></i>'+item['name']+'</li>');
+
+      });
+    });
+
+    $(".checkway").hover(function () {
+      alert(22);
+
+    });
+
+
+  })
+
+</script>
 </body>
 </html>
